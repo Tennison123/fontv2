@@ -48,7 +48,7 @@
       </div>
       
       <div class="row justify-content-center">
-        <div class="col" *ngFor="let item of pictureData.slice(0, 3)" style="background-color: white; margin-top: 5px; position: relative; text-center;">
+        <div class="col" *ngFor="let item of pictureData.slice(0, 3)" style="background-color: white; margin-top: 5px; position: relative;">
           <div *ngIf="item" class="text-center" (click)="goToGraph(item.picture)">
             <!-- กำหนดความกว้างและความสูงของภาพ -->
             <img [src]="item.picture" alt="Profile Picture" style="width: 200px; height: 200px;">
@@ -57,7 +57,7 @@
       </div>
       
       <div class="row justify-content-center">
-        <div class="col" *ngFor="let item of pictureData.slice(3, 5)" style="background-color: white; position: relative; text-center;">
+        <div class="col" *ngFor="let item of pictureData.slice(3, 5)" style="background-color: white; position: relative;">
           <div *ngIf="item" class="text-center" (click)="goToGraph(item.picture)">
             <!-- กำหนดความกว้างและความสูงของภาพ -->
             <img [src]="item.picture" alt="Profile Picture" style="width: 200px; height: 200px;">
