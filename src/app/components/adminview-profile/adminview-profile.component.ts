@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 import { PostPostReq } from '../../model/Posts.post.req.js';
-
 @Component({
   selector: 'app-adminview-profile',
   standalone: true,
+  imports: [MatToolbarModule,HttpClientModule,MatButtonModule,CommonModule],
   templateUrl: './adminview-profile.component.html',
   styleUrl: './adminview-profile.component.scss'
 })
-export class AdminviewProfileComponent implements OnInit {
+export class AdminviewProfileComponent {
   pictureData: PostPostReq[] = [];
   userId: string = ''; // กำหนดค่าเริ่มต้นสำหรับ userId
 
@@ -22,7 +25,9 @@ export class AdminviewProfileComponent implements OnInit {
       this.getPictureData(this.userId);
     });
   }
-
+  
+  
+  
   // เมทอดเพื่อดึงข้อมูลภาพจาก API โดยใช้ userId
   getPictureData(id: string) {
     if (!id) {
@@ -39,6 +44,7 @@ export class AdminviewProfileComponent implements OnInit {
       }
     );
   }
+  
 
   // เมทอดตัวอย่างสำหรับการนำทางไปยังหน้าโหวต
   toVote() {
@@ -59,15 +65,15 @@ export class AdminviewProfileComponent implements OnInit {
   toUpload(userId: string) {
     this.router.navigate(['/upload'], { queryParams: { user_id: userId } });
   }
-
   // เมทอดสำหรับการล็อกเอ้าท์
   logout() {
     this.router.navigate(['/']);
   }
 
   // เพิ่มเมทอดใหม่
-  goToGraph(pictureUrl: string) {
-    // ส่งค่า URL ของภาพไปยังหน้า graph
-    this.router.navigate(['/graph'], { queryParams: { picture_url: pictureUrl } });
-  }
+goToGraph(pictureUrl: string) {
+  // ส่งค่า URL ของภาพไปยังหน้า graph
+  this.router.navigate(['/graph'], { queryParams: { picture_url: pictureUrl } });
 }
+}
+
