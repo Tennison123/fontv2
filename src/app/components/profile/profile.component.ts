@@ -38,7 +38,7 @@ export class ProfileComponent {
       return; // ออกจากเมทอดถ้า user_id เป็น undefined หรือว่างเปล่า
     }
   
-    this.httpClient.get(`http://localhost:4000/facemash/profile/${id}`).subscribe(
+    this.httpClient.get(`https://backpro-4.onrender.com/facemash/profile/${id}`).subscribe(
       (data: any) => {
         this.pictureData = data;
       },
@@ -77,5 +77,8 @@ export class ProfileComponent {
 goToGraph(post_id: string) {
   // ส่งค่า URL ของภาพไปยังหน้า graph
   this.router.navigate(['/graph'], { queryParams: { post_id: post_id } });
+}
+check(userId: string) {
+  this.router.navigate(['/home'] ,{ queryParams: { user_id: userId } });
 }
 }

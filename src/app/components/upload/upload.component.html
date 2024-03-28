@@ -20,9 +20,9 @@
                     <input placeholder="URL or File:" class="form-control" type="text" [(ngModel)]="picture" name="pictureUrl">
                   </div>
                   <div class="btn-signup">
-                    <button style="background-color:  rgb(225, 255, 181);width: 375px; color: black; margin-top: 10px; margin-left: 5px; border-radius: 10px;" mat-flat-button (click)="onUpload()">Upload</button>
+                    <button style="background-color:  rgb(225, 255, 181);width: 375px; color: black; margin-top: 10px; margin-left: 5px; border-radius: 10px;" mat-flat-button (click)="uploadProfilePicture()">Upload</button>
                   </div>
-                  <button style="margin-top: 10px; margin-left: 5px;" mat-flat-button (click)="check()">Back</button>
+                  <button style="margin-top: 10px; margin-left: 5px;" mat-flat-button (click)="check(userId)">Back</button>
                 </form>
               </div>
             </div>

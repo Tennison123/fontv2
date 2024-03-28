@@ -15,6 +15,7 @@
                     <div class="card-body">
                         <img src="https://playtusu.com/wp-content/uploads/2022/07/rick-and-morty-yeni-sezon-1310x800.png" alt="Login" class="mb-4 circle-image">
                         <h4 class="text-center mb-4">Edit Profile</h4>
+                        <p class="text-center mb-4" style="color: red;">*สามารถใส่แค่ข้อมูลที่ต้องการเปลี่ยนแปลงได้*</p>
                         <form>
                             <div class="input-group">
                                 <input placeholder="Firstname:" class="form-control" type="text" [(ngModel)]="firstName" name="firstName">
@@ -28,10 +29,13 @@
                             <div class="input-group" style="margin-top: 10px;">
                                 <input placeholder="Confirm Password:" class="form-control" type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
                             </div>
+                            <div class="input-group" style="margin-top: 10px;">
+                                <input placeholder="URL or File:" class="form-control" type="text" [(ngModel)]="profile" name="pictureUrl">
+                              </div>
                             <div class="btn-signup">
-                                <button style="background-color: rgb(225, 255, 181); width: 375px; color: black; margin-top: 10px; margin-left: 5px; border-radius: 10px;" mat-flat-button (click)="edit()">Confirm</button>
+                                <button style="background-color: rgb(225, 255, 181); width: 375px; color: black; margin-top: 10px; margin-left: 5px; border-radius: 10px;" mat-flat-button (click)="edit(userId)">Confirm</button>
                             </div>
-                            <button style="margin-top: 10px; margin-left: 5px;" mat-flat-button (click)="check()">back</button>
+                            <button style="margin-top: 10px; margin-left: 5px;" mat-flat-button (click)="check(userId)">back</button>
                         </form>
                     </div>
                 </div>
@@ -40,4 +44,3 @@
     </div>    
 </body>
 </html>
-

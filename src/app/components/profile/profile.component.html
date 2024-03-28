@@ -11,15 +11,14 @@
     <mat-toolbar>
       <span style="color: chartreuse;">Rickmash</span>
       <div style="flex-grow: 1"></div> <!-- สร้างพื้นที่เพิ่มเติมให้ปุ่มต่อทางขวา -->
-      <button (click)="toVote()" style="background-color: rgb(241, 135, 6); color: black; margin-left: 10px;" mat-flat-button>VOTE</button>
+      <button style="margin-top: 10px; margin-left: 5px;"style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button (click)="check(userId)">Home</button>
       <button (click)="toProfile()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Profile</button>
       <button (click)="logout()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Logout</button>
-      
+     
     </mat-toolbar>
   </header>
   <body>
     <div class="container">
-      
         <div class="row justify-content-center">
           <div class="col text-center">
             <div style="background-color: white; padding: 1px; border-radius: 20px; width: 15%; margin-left: 42.5%; margin-top: 10px;">
@@ -31,15 +30,14 @@
 
       
       <div class="row">
-        <div class="col" style="background-color: white; margin-top: 20px; height: 180px; position: relative;">
+        <div class="col" style="background-color: white; margin-top: 10px; height: 180px; position: relative;">
           <img [src]="pictureData[0]?.profile" style="width: 160px; margin-left: 150px; margin-top: 10px; border-radius: 50%; height: 160px;">
           <h3 class="user-name">USER: {{ pictureData[0]?.first_name }} {{ pictureData[0]?.last_name }}</h3>
           <button (click)="toEdit(userId)" style="background-color: gray; color: black; margin-left: 20px; margin-top: 100px;" mat-flat-button>Edit Profile</button>
           <button (click)="toUpload(userId)" style="background-color: gray; color: black; margin-left: 50px; margin-top: 100px;" mat-flat-button>Upload Photo</button>
         </div>
       </div>
-      
-      
+
 
       <div class="row justify-content-center">
         <div class="col text-center">
@@ -50,7 +48,7 @@
       </div>
 
       <div class="row justify-content-center">
-        <div class="col" *ngFor="let item of pictureData.slice(0, 3)" style="background-color: white; margin-top: 5px; position: relative; text-center;">
+        <div class="col" *ngFor="let item of pictureData.slice(0, 3)" style="background-color: white; margin-top: 5px; position: relative; ">
           <div *ngIf="item" class="text-center" (click)="goToGraph(item.post_id.toString())">
             <!-- กำหนดความกว้างและความสูงของภาพ -->
             <img [src]="item.picture" alt="Profile Picture" style="width: 200px; height: 200px;">
@@ -59,23 +57,12 @@
       </div>
       
       <div class="row justify-content-center">
-        <div class="col" *ngFor="let item of pictureData.slice(3, 5)" style="background-color: white; position: relative; text-center;">
+        <div class="col" *ngFor="let item of pictureData.slice(3, 5)" style="background-color: white; position: relative; ">
           <div *ngIf="item" class="text-center" (click)="goToGraph(item.post_id.toString())">
             <!-- กำหนดความกว้างและความสูงของภาพ -->
             <img [src]="item.picture" alt="Profile Picture" style="width: 200px; height: 200px;">
           </div>
         </div>
-      </div>
-      
-      
-      
-      
-
-      
-      
-      
-      
-      
-      
+      </div> 
   </body>
 </html>

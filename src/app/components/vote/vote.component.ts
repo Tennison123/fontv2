@@ -28,18 +28,24 @@ export class VoteComponent implements OnInit, OnDestroy {
   K: number = 32;
   PictureID: number[] = [];
   currentDate: string = ''; // กำหนดค่าเริ่มต้นเป็น string
+  userId: string = ''; // กำหนดค่าเริ่มต้นสำหรับ userId
   private destroy$: Subject<void> = new Subject(); // เพื่อยกเลิกการทำงานของ interval อย่างถูกต้อง
 
   constructor(private router: Router, private route: ActivatedRoute, private httpClient: HttpClient) {}
 
   async ngOnInit() {
-    const HOST: string = 'http://localhost:4000';
+    this.route.queryParams.subscribe(params => {
+      this.userId = params['user_id'];
+      console.log('Received userId:', this.userId); // ใช้ console.log() เพื่อตรวจสอบค่า userId
+    });
+    const HOST: string = 'https://backpro-4.onrender.com';
     const url = `${HOST}/facemash/vote`;
     this.getCurrentDateTime(); // เรียกใช้งาน getCurrentDateTime() ใน ngOnInit()
     interval(1000)
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
         this.getCurrentDateTime(); // เรียกใช้งาน getCurrentDateTime() ทุกๆ 1 วินาที
+        
       });
   
     try {
@@ -154,5 +160,8 @@ export class VoteComponent implements OnInit, OnDestroy {
 
   logout() {
     this.router.navigate(['/']);
+  }
+  check(userId: string) {
+    this.router.navigate(['/home'] ,{ queryParams: { user_id: userId } });
   }
 }

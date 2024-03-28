@@ -34,7 +34,7 @@ export class HomeComponent {
   }
   
   getTopPosts() {
-    this.httpClient.get<any[]>('http://localhost:4000/facemash/top-post')
+    this.httpClient.get<any[]>('https://backpro-4.onrender.com/facemash/top-post')
       .subscribe(
         (response) => {
           this.topPosts = response;
@@ -47,8 +47,8 @@ export class HomeComponent {
   }
 
 
-  tovote() {
-    this.router.navigate(['/vote']);
+  tovote(userId: string) {
+    this.router.navigate(['/vote'], { queryParams: { user_id: userId } });
   }
 
   toProfile(userId: string) {
@@ -59,6 +59,3 @@ export class HomeComponent {
     this.router.navigate(['/']);
   }
 }
-
-
-
