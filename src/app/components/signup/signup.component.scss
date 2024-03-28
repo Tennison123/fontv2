@@ -1,0 +1,52 @@
+input {
+  background-color: rgb(225, 255, 181);
+  width: 370px;
+  border-radius: 10px;
+  margin-left: 5px;
+  height: 40px;
+}
+.circle-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: block;
+}
+.span {
+  background-color: rgb(225, 255, 181);
+}
+.card {
+  border-radius: 10%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.card-body {
+  height: 80%;
+}
+h4 {
+  margin-top: 10px;
+}
+body {
+  background-image: url('https://para-pc.net/wp-content/uploads/2022/08/Rick-y-Morty-00-768x432.jpg?fbclid=IwAR1CSwo1OGNtgoZVuP8rVVSQhQ5mjYWkmgF1aFWOpebq7eNnilObZhEzLD8');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Set the height to full viewport height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+.container {
+  padding-top: 20px; /* Adjust top padding */
+}
+
+.input-group input {
+  background-color: rgb(225, 255, 181);
+}
+.input-group input:focus {
+  background-color: rgb(225, 255, 181);
+}
+

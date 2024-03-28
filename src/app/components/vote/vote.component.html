@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <span style="color: chartreuse;">Rickmash</span>
+    <div style="flex-grow: 1"></div> <!-- สร้างพื้นที่เพิ่มเติมให้ปุ่มต่อทางขวา -->
+    <button (click)="toProfile()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Profile</button>
+    <button (click)="logout()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Logout</button>
+</mat-toolbar>
+  <body>
+    <h3>Date and time of voting : {{ currentDate }}</h3>
+    <br>
+    <h2>Click on the picture you want to vote for</h2>
+
+    <div class="card-vote">
+      <div class="col">
+        <div class="card-vote1" (click)="vote(show[0].post_id, show[1].post_id)">
+          <div class="card-head">
+            <!-- <span>{{show[0].first_name}} {{show[0].last_name}}</span> -->
+          </div>
+          <img *ngIf="show[0].picture" [src]="show[0].picture" alt="Post Image" class="custom-image">
+        </div>
+        <h1>OR</h1>
+        <div class="card-vote2" (click)="vote(show[1].post_id, show[0].post_id)"> 
+          <div class="card-head">
+            <!-- <span>{{show[1].first_name}} {{show[1].last_name}}</span> -->
+          </div>
+          <img *ngIf="show[1].picture" [src]="show[1].picture" alt="Post Image" class="custom-image">
+        </div>
+      </div>
+    </div>
+    
+  </body>

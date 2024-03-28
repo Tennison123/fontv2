@@ -1,0 +1,18 @@
+body {
+    background-image: url('https://para-pc.net/wp-content/uploads/2022/08/Rick-y-Morty-00-768x432.jpg?fbclid=IwAR1CSwo1OGNtgoZVuP8rVVSQhQ5mjYWkmgF1aFWOpebq7eNnilObZhEzLD8');
+    background-size: cover;
+    background-position: center;
+    height: 91.7%; /* Set the height to full viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  mat-toolbar{
+    background-color: white;
+  }
+  .user-name {
+    position: absolute;
+    bottom: 100px;
+    left: 30%;
+    transform: translateX(-50%);
+  }
+  

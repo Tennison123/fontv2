@@ -1,0 +1,50 @@
+body {
+    background-image: url('https://para-pc.net/wp-content/uploads/2022/08/Rick-y-Morty-00-768x432.jpg?fbclid=IwAR1CSwo1OGNtgoZVuP8rVVSQhQ5mjYWkmgF1aFWOpebq7eNnilObZhEzLD8');
+    background-size: cover;
+    background-position: center;
+    height: 89.5vh; /* Set the height to full viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  mat-toolbar{
+    background-color: white;
+  }
+  // .card-vote1 img,
+  // .card-vote2 img {
+  //     width: 250px; /* กำหนดความกว้างของภาพ */
+  //     height: auto; /* ปรับสูงของภาพโดยอัตโนมัติเพื่อรักษาสัดส่วน */
+  // }
+  .card-vote {
+    display: flex; /* ตั้งค่าให้ div.card-vote เป็น Flex Container */
+    justify-content: center; /* จัดตำแหน่งของ Flex Items ในแนวนอนตรงกลาง */
+  }
+  
+  .col {
+    display: flex; /* ตั้งค่าให้ div.col เป็น Flex Container */
+    justify-content: space-around; /* จัดระยะห่างระหว่าง Flex Items เป็นระยะที่เท่ากัน */
+    align-items: center; /* จัดตำแหน่งของ Flex Items ในแนวตั้งตรงกลาง */
+  }
+  
+  .card-vote1, .card-vote2 {
+    text-align: center; /* จัดข้อความใน Card ตรงกลาง */
+  }
+  
+  .card-head {
+    margin-bottom: 10px; /* กำหนดระยะห่างด้านล่างของส่วนหัวของ Card */
+  }
+  
+  .custom-image {
+    width: 350px; /* กำหนดความกว้างของภาพ */
+    height: 350px; /* กำหนดความสูงของภาพ */
+    object-fit: cover; /* ปรับขนาดของภาพให้เต็มพื้นที่ของตัว element */
+  }
+  h2{
+    margin-left: 550px;
+
+  }
+  .card-vote1{
+    margin-right: 50px;
+  }
+  .card-vote2{
+    margin-left: 50px;
+  }
