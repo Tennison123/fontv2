@@ -35,7 +35,7 @@ export class AdminviewProfileComponent {
       return; // ออกจากเมทอดถ้า user_id เป็น undefined หรือว่างเปล่า
     }
   
-    this.httpClient.get(`http://localhost:4000/facemash/profile/${id}`).subscribe(
+    this.httpClient.get(`https://backpro-4.onrender.com/facemash/profile/${id}`).subscribe(
       (data: any) => {
         this.pictureData = data;
       },
@@ -46,10 +46,10 @@ export class AdminviewProfileComponent {
   }
   
 
-  // เมทอดตัวอย่างสำหรับการนำทางไปยังหน้าโหวต
-  toVote() {
-    this.router.navigate(['/vote']);
-  }
+  // // เมทอดตัวอย่างสำหรับการนำทางไปยังหน้าโหวต
+  // toVote() {
+  //   this.router.navigate(['/vote']);
+  // }
 
   // เมทอดตัวอย่างสำหรับการนำทางไปยังหน้าโปรไฟล์
   toProfile() {
@@ -76,4 +76,3 @@ goToGraph(pictureUrl: string) {
   this.router.navigate(['/graph'], { queryParams: { picture_url: pictureUrl } });
 }
 }
-

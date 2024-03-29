@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Router,NavigationEnd} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PostPostReq } from '../../model/Posts.post.req.js';
@@ -17,15 +17,21 @@ import { PostPostReq } from '../../model/Posts.post.req.js';
 })
 export class AdminComponent {
   users: PostPostReq[] = []; // เก็บข้อมูลผู้ใช้
-  constructor(private router: Router, private httpClient: HttpClient) {}
+  constructor(private router: Router, private route: ActivatedRoute, private httpClient: HttpClient) {}
+  userId: string = ''; // เพิ่มตัวแปร userId
 
-  ngOnInit(): void {
-    this.fetchUsers(); // เรียก method เพื่อดึงข้อมูลผู้ใช้เมื่อ Component ถูกโหลด
+    ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.userId = params['user_id'];
+      console.log('Received userId:', this.userId); // ใช้ console.log() เพื่อตรวจสอบค่า userId
+    });
+    this.fetchUsers();
   }
+
 
   fetchUsers() {
     // เรียก API เพื่อดึงข้อมูลผู้ใช้
-    this.httpClient.get<any[]>('http://localhost:4000/facemash/admin')
+    this.httpClient.get<any[]>('https://backpro-4.onrender.com/facemash/admin')
 
       .subscribe(
         (users: any[]) => {
@@ -51,9 +57,10 @@ export class AdminComponent {
   toPicture(user_id: string) {
     this.router.navigate(['/adminView-profile'],  { queryParams: { user_id: user_id } });
   }
-  toProfile() {
-    this.router.navigate(['/profile']);
-  }
+  toProfile(userId: string) {
+    this.router.navigate(['/profile'], { queryParams: { user_id: userId } });
+  } 
+
 
 
 

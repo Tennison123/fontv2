@@ -58,4 +58,9 @@ export class HomeComponent {
   logout() {
     this.router.navigate(['/']);
   }
+      // เพิ่มเมทอดใหม่
+  goToGraph(post_id: string) {
+    // ส่งค่า URL ของภาพไปยังหน้า graph
+    this.router.navigate(['/profile'], { queryParams: { post_id: post_id } });
+  }
 }

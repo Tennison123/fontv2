@@ -1,21 +1,18 @@
 <mat-toolbar>
-    <span style="color: chartreuse;">Rickmash</span>
-    <div style="flex-grow: 1"></div>
-    <button (click)="toProfile()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Profile</button>
-    <button (click)="logout()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Logout</button>
-  </mat-toolbar>
-  
-  <body style="margin-top: 10px;">
-    <div *ngFor="let user of users" style="width: 90%; height: 130px; background-color: #ffffff; padding: 10px; display: flex; align-items: center; margin-top: 30px; margin-left: 80px;">
-      <img [src]="user.profile" style="width: 100px; height: 100px; border-radius: 50%; margin-left: 50px;">
-      <div>
-        <h3 style="margin-left: 50px;">{{ user.first_name }} {{ user.last_name }}</h3>
-        <button (click)="toProfileuser(user.user_id.toString())" style="background-color: rgb(255, 221, 0); color: black; margin-left: 300px;">ดูโปรไฟล์</button>
-        <!-- Pass user_id to the toProfile() method -->
-        <button style="background-color: rgb(255, 221, 0); color: black; margin-left: 150px;">ดูรูปภาพ</button>
-      </div>
+  <span style="color: chartreuse;">Rickmash</span>
+  <div style="flex-grow: 1"></div>
+  <!-- <button (click)="toProfile(userId)" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Profile</button> -->
+  <button (click)="logout()" style="background-color: rgb(255, 255, 255); color: black; margin-left: 10px;" mat-flat-button>Logout</button>
+</mat-toolbar>
+
+<body style="margin-top: 10px;">
+  <div *ngFor="let user of users" style="width: 90%; height: 130px; background-color: #ffffff; padding: 10px; display: flex; align-items: center; margin-top: 30px; margin-left: 80px;">
+    <img [src]="user.profile" style="width: 100px; height: 100px; border-radius: 50%; margin-left: 50px;">
+    <div>
+      <h3 style="margin-left: 50px;">{{ user.first_name }} {{ user.last_name }}</h3>
+      <button (click)="toProfileuser(user.user_id.toString())" style="background-color: rgb(255, 221, 0); color: black; margin-left: 300px;">ดูโปรไฟล์</button>
+      <!-- Pass user_id to the toProfile() method -->
+      <button style="background-color: rgb(255, 221, 0); color: black; margin-left: 150px;">ดูรูปภาพ</button>
     </div>
-  </body>
-  
-  
-  
+  </div>
+</body>

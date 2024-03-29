@@ -80,5 +80,7 @@ goToGraph(post_id: string) {
 }
 check(userId: string) {
   this.router.navigate(['/home'] ,{ queryParams: { user_id: userId } });
+
 }
+
 }

@@ -32,12 +32,13 @@ export class VoteComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject(); // เพื่อยกเลิกการทำงานของ interval อย่างถูกต้อง
 
   constructor(private router: Router, private route: ActivatedRoute, private httpClient: HttpClient) {}
-
+  //รับค่า userId จาก query parameters และแสดงผ่านทาง console.log()
   async ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.userId = params['user_id'];
       console.log('Received userId:', this.userId); // ใช้ console.log() เพื่อตรวจสอบค่า userId
     });
+    //เรียกใช้ getCurrentDateTime() เพื่อกำหนดค่าเริ่มต้นของ currentDate
     const HOST: string = 'https://backpro-4.onrender.com';
     const url = `${HOST}/facemash/vote`;
     this.getCurrentDateTime(); // เรียกใช้งาน getCurrentDateTime() ใน ngOnInit()
@@ -47,7 +48,7 @@ export class VoteComponent implements OnInit, OnDestroy {
         this.getCurrentDateTime(); // เรียกใช้งาน getCurrentDateTime() ทุกๆ 1 วินาที
         
       });
-  
+      //async vote(winnerPostId: number, loserPostId: number): เมื่อมีการโหวต จะทำการส่งข้อมูลการโหวตไปยัง URL ที่กำหนด โดยใช้ Axios และแสดงข้อความเกี่ยวกับผลการโหวตผ่านทาง Swal.fire ในกรณีที่มีข้อผิดพลาดหรือประสบความสำเร็จ
     try {
       const response = await axios.get(url);
   
@@ -73,9 +74,11 @@ export class VoteComponent implements OnInit, OnDestroy {
     const URL = 'http://localhost:4000/facemash/vote';
     
     try {
+      //await axios.post(URL, { winnerPostId, loserPostId }): ส่งข้อมูลการโหวตไปยัง URL ที่กำหนดโดยใช้ Axios และรอให้การเรียก API เสร็จสมบูรณ์ หากสำเร็จจะได้รับข้อมูลการตอบกลับจากเซิร์ฟเวอร์
         const response = await axios.post(URL, { winnerPostId, loserPostId });
+        //console.log('Response data:', response.data): แสดงข้อมูลที่ได้รับจากการโหวตผ่านทาง Console
         console.log('Response data:', response.data);
-
+        //ดึงข้อมูลที่ส่งกลับมาจากเซิร์ฟเวอร์และกำหนดให้กับตัวแปรต่าง ๆ เพื่อให้ง่ายต่อการใช้งาน
         const { updatedWinner, updatedEloRatingWinner, updatedLoser, updatedEloRatingLoser } = response.data;
 
         if (updatedWinner && updatedLoser) {
@@ -126,17 +129,18 @@ export class VoteComponent implements OnInit, OnDestroy {
 
 
 
-
+ //ค้นหา index ของโพสต์ที่ต้องการอัปเดตในอาร์เรย์ postArray โดยใช้ findIndex เพื่อหา index ของโพสต์ที่มี post_id เท่ากับ updatedPost.post_id
   updatePostScore(postArray: any[], updatedPost: { post_id: any; }, newRating: any) {
     const postIndex = postArray.findIndex(post => post.post_id === updatedPost.post_id);
-  
+    //ตรวจสอบว่าโพสต์ที่ต้องการอัปเดตมีอยู่ในอาร์เรย์หรือไม่ โดยเช็คค่า postIndex ว่าไม่เท่ากับ -1 ซึ่งหมายความว่าโพสต์นั้นพบอยู่ในอาร์เรย์
     if (postIndex !== -1) {
         const oldScore = postArray[postIndex].score;
         postArray[postIndex].score = newRating;
   
         console.log(`Post ID: ${updatedPost.post_id}, Old Score: ${oldScore}, New Score: ${newRating}`)
-        
+         //const oldScore = postArray[postIndex].score;: เก็บค่าคะแนนเดิมของโพสต์ที่จะอัปเดตไว้ในตัวแปร oldScore
         // แสดง Swal.fire เฉพาะ Post ID ที่ชนะ
+        //postArray[postIndex].score = newRating;: อัปเดตคะแนนของโพสต์ในอาร์เรย์ postArray ด้วยคะแนนใหม่ที่ได้หลังจากการโหวต
         if (newRating > oldScore) {
             Swal.fire({
               title: `You Vote Post ID: ${updatedPost.post_id}`,

@@ -36,6 +36,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col" *ngFor="let post of topPosts.slice(0, 5); let i = index" style="margin-bottom: 20px;">
+      <!-- <div *ngIf="item" class="text-center" (click)="goToGraph(item.post_id.toString())"></div> -->
       <img [src]="post.picture" class="img-fluid" style="width: 240px; height: 240px;" [alt]="'Image ' + post.post_id">
       <div style="background-color: white; padding: 8px; border-radius: 20px; width: 70%; margin-left: 25px; height: 20%;">
         <h5 style="margin-left: 25px;">อันดับ {{ i + 1 }} </h5>
@@ -49,6 +50,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col" *ngFor="let post of topPosts.slice(5, 10); let i = index" style="margin-bottom: 20px;">
+      <!-- <div *ngIf="item" class="text-center" (click)="goToGraph(item.post_id.toString())"></div> -->
       <img [src]="post.picture" class="img-fluid" style="width: 240px; height: 240px;" [alt]="'Image ' + post.post_id">
       <div style="background-color: white; padding: 8px; border-radius: 20px; width: 70%; margin-left: 25px; height: 20%;">
         <h5 style="margin-left: 25px;">อันดับ {{ i + 6 }}</h5>
